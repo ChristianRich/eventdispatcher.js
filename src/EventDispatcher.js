@@ -21,9 +21,21 @@ var EventDispatcher = function () {
 		}
 
 	};
+	
+	this.hasEventListener = function( type ){
+		if(!listeners[ type ]){
+			return false;
+		}
 
+		return !!listeners[ type ].length;
+	};
+	
 	this.removeEventListener = function ( type, listener ) {
-
+		
+		if(!this.hasEventListener( type )){
+			return false;
+		}
+		
 		var index = listeners[ type ].indexOf( listener );
 
 		if ( index !== - 1 ) {
