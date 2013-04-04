@@ -48,4 +48,10 @@ var EventDispatcher = function () {
 			}
 		}
 	};
+
+	this.clone = function(event){
+		var n = {};
+		for(var key in event) n[key] = event[key];
+		return n;
+	};
 };
